@@ -121,6 +121,7 @@ func resourceServiceACLEntriesRead(_ context.Context, d *schema.ResourceData, me
 	remoteState, err := conn.ListACLEntries(&gofastly.ListACLEntriesInput{
 		ServiceID: serviceID,
 		ACLID:     aclID,
+		PerPage:   1000,
 	})
 	if err != nil {
 		return diag.FromErr(err)
